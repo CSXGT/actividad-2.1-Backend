@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <h1>Eventos</h1>
@@ -15,13 +29,13 @@
                 <th ><h3>MATERIA_ID</h3></th>
                 <th ><h3>SECCION_ID</h3></th>
                  </tr>
-            <% eventos.forEach(r => { %>
+            <% resp.forEach(r => { %>
                 <tr>
-                    <td><%= r.ID_EVENTOS  %></td>
-                    <td><%= r.TIPO  %></td>
-                    <td><%= r.FECHA  %></td>
-                    <td><%= r.MATERIA_ID  %></td>
-                    <td><%= r.SECCION_ID  %></td>
+                    <td><%= r.id  %></td>
+                    <td><%= r.tipo  %></td>
+                    <td><%= r.fecha  %></td>
+                    <td><%= r.materia_id  %></td>
+                    <td><%= r.seccion_id  %></td>
                 </tr>
             <% }) %>
         </table>

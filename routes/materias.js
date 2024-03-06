@@ -7,76 +7,61 @@ const materiasController = require('../controllers/materias.c');
 // Mostrar todas las materias
 router.get('/', (req, res) => {
   materiasController.Mostrar()
-    .then(result => {
-      res.json(result);
+    .then(resp => {
+      res.render('materias', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
     });
 });
 
-// Buscar una materia por ID
+// Buscar un evento por ID
 router.get('/:id', (req, res) => {
-  const idMateria = req.params.id;
-  materiasController.Buscar(idMateria)
-    .then(result => {
-      res.json(result);
+  const idEvento = req.params.id;
+  materiasController.Buscar(idEvento)
+    .then(resp => {
+      res.render('materias', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
     });
 });
 
-// Ingresar una nueva materia
+// Ingresar un nuevo evento
 router.post('/', (req, res) => {
-  const nuevaMateria = req.body; // Supongamos que los datos están en el cuerpo de la solicitud
-  materiasController.Ingresar(nuevaMateria)
-    .then(result => {
-      res.json(result);
+  const nuevoEvento = req.body;
+  materiasController.Ingresar(nuevoEvento)
+    .then(resp => {
+      res.render('materias', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
     });
 });
 
-// Modificar una materia
+// Modificar un evento
 router.put('/:id', (req, res) => {
-  const idMateria = req.params.id;
-  const nuevaInfoMateria = req.body;
-  materiasController.Modificar(idMateria, nuevaInfoMateria)
-    .then(result => {
-      res.json(result);
+  const idEvento = req.params.id;
+  const nuevaInfoEvento = req.body;
+  materiasController.Modificar(idEvento, nuevaInfoEvento)
+    .then(resp => {
+      res.render('materias', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
     });
 });
 
-// Eliminar una materia
+// Eliminar un evento
 router.delete('/:id', (req, res) => {
-  const idMateria = req.params.id;
-  materiasController.Eliminar(idMateria)
-    .then(result => {
-      res.json(result);
+  const idEvento = req.params.id;
+  materiasController.Eliminar(idEvento)
+    .then(resp => {
+      res.render('materias', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
     });
 });
-
-// Obtener eventos de una materia para una fecha y la semana siguiente
-router.get('/eventos/:idMateria/:fecha', (req, res) => {
-  const { idMateria, fecha } = req.params;
-
-  materiasController.ObtenerEventos(idMateria, fecha)
-    .then(result => {
-      res.json(result);
-    })
-    .catch(error => {
-      res.status(500).send(error);
-    });
-});
-
-module.exports = router;
 
 module.exports = router;

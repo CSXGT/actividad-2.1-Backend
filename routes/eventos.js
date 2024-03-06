@@ -7,8 +7,8 @@ const eventosController = require('../controllers/eventos.c');
 // Mostrar todas los eventos
 router.get('/', (req, res) => {
   eventosController.Mostrar()
-    .then(result => {
-      res.json(result);
+    .then(resp => {
+      res.render('eventos', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
@@ -19,8 +19,8 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const idEvento = req.params.id;
   eventosController.Buscar(idEvento)
-    .then(result => {
-      res.json(result);
+    .then(resp => {
+      res.render('eventos', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
@@ -29,10 +29,10 @@ router.get('/:id', (req, res) => {
 
 // Ingresar un nuevo evento
 router.post('/', (req, res) => {
-  const nuevoEvento = req.body; // Supongamos que los datos están en el cuerpo de la solicitud
+  const nuevoEvento = req.body;
   eventosController.Ingresar(nuevoEvento)
-    .then(result => {
-      res.json(result);
+    .then(resp => {
+      res.render('eventos', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
@@ -44,8 +44,8 @@ router.put('/:id', (req, res) => {
   const idEvento = req.params.id;
   const nuevaInfoEvento = req.body;
   eventosController.Modificar(idEvento, nuevaInfoEvento)
-    .then(result => {
-      res.json(result);
+    .then(resp => {
+      res.render('eventos', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
@@ -56,8 +56,8 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const idEvento = req.params.id;
   eventosController.Eliminar(idEvento)
-    .then(result => {
-      res.json(result);
+    .then(resp => {
+      res.render('eventos', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
