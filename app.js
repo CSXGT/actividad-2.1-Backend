@@ -20,10 +20,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var eventosRouter = require("./routes/eventos");
+var materiasRouter = require("./routes/materias");
+var profesoresRouter = require("./routes/profesores");
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/eventos", eventosRouter);
+app.use("/materias", materiasRouter);
+app.use("/profesores", profesoresRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
