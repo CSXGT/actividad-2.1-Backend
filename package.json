@@ -7,7 +7,8 @@
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.9",
     "express": "^4.18.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
   },
   "name": "actividad-2.1-backend",
   "description": "Actividad de Backend. Unidad II. Cristhofer Solarte 30.959.561, Verónica Parra 30.600.365",
