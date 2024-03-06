@@ -1,17 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var eventosRouter = require('./routes/eventos');
+var materiasRouter = require('./routes/materias');
+var profesoresRouter = require('./routes/profesores');
+var seccionesRouter = require('./routes/secciones');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -19,18 +23,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var eventosRouter = require("./routes/eventos");
-var materiasRouter = require("./routes/materias");
-var profesoresRouter = require("./routes/profesores");
-var seccionesRouter = require("./routes/secciones");
-
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use("/eventos", eventosRouter);
-app.use("/materias", materiasRouter);
-app.use("/profesores", profesoresRouter);
-app.use("/secciones", seccionesRouter);
+app.use('/eventos', eventosRouter);
+app.use('/materias', materiasRouter);
+app.use('/profesores', profesoresRouter);
+app.use('/secciones', seccionesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
