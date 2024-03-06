@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<body>
+    <h1>Eventos</h1>
+        <table>
+            <tr>
+                <th ><h3>ID_EVENTOS</h3></th>
+                <th ><h3>TIPO</h3></th>
+                <th ><h3>FECHA</h3></th>
+                <th ><h3>MATERIA_ID</h3></th>
+                <th ><h3>SECCION_ID</h3></th>
+                 </tr>
+            <% eventos.forEach(r => { %>
+                <tr>
+                    <td><%= r.ID_EVENTOS  %></td>
+                    <td><%= r.TIPO  %></td>
+                    <td><%= r.FECHA  %></td>
+                    <td><%= r.MATERIA_ID  %></td>
+                    <td><%= r.SECCION_ID  %></td>
+                </tr>
+            <% }) %>
+        </table>
+
+</body>
+</html>
