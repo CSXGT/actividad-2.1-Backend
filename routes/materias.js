@@ -64,4 +64,19 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+// Obtener eventos de una materia para una fecha y la semana siguiente
+router.get('/eventos/:idMateria/:fecha', (req, res) => {
+  const { idMateria, fecha } = req.params;
+
+  materiasController.ObtenerEventos(idMateria, fecha)
+    .then(result => {
+      res.json(result);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+    });
+});
+
+module.exports = router;
+
 module.exports = router;
