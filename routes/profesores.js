@@ -4,60 +4,60 @@ const profesoresController = require('../controllers/profesores.c');
 
 // Rutas CRUD para profesores
 
-// Mostrar todas los profesores
+// Mostrar todos los profesores
 router.get('/', (req, res) => {
   profesoresController.Mostrar()
-    .then(result => {
-      res.json(result);
+    .then(resp => {
+      res.render('profesores', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
     });
 });
 
-// Buscar un profesor por ID
+// Buscar un evento por ID
 router.get('/:id', (req, res) => {
-  const idProfesor = req.params.id;
-  profesoresController.Buscar(idProfesor)
-    .then(result => {
-      res.json(result);
+  const idEvento = req.params.id;
+  profesoresController.Buscar(idEvento)
+    .then(resp => {
+      res.render('profesores', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
     });
 });
 
-// Ingresar un nuevo profesor
+// Ingresar un nuevo evento
 router.post('/', (req, res) => {
-  const nuevoProfesor = req.body; // Supongamos que los datos están en el cuerpo de la solicitud
-  profesoresController.Ingresar(nuevoProfesor)
-    .then(result => {
-      res.json(result);
+  const nuevoEvento = req.body;
+  profesoresController.Ingresar(nuevoEvento)
+    .then(resp => {
+      res.render('profesores', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
     });
 });
 
-// Modificar un profesor
+// Modificar un evento
 router.put('/:id', (req, res) => {
-  const idProfesor = req.params.id;
-  const nuevaInfoProfesor = req.body;
-  profesoresController.Modificar(idProfesor, nuevaInfoProfesor)
-    .then(result => {
-      res.json(result);
+  const idEvento = req.params.id;
+  const nuevaInfoEvento = req.body;
+  profesoresController.Modificar(idEvento, nuevaInfoEvento)
+    .then(resp => {
+      res.render('profesores', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
     });
 });
 
-// Eliminar un profesor
+// Eliminar un evento
 router.delete('/:id', (req, res) => {
-  const idProfesor = req.params.id;
-  profesoresController.Eliminar(idProfesor)
-    .then(result => {
-      res.json(result);
+  const idEvento = req.params.id;
+  profesoresController.Eliminar(idEvento)
+    .then(resp => {
+      res.render('profesores', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
