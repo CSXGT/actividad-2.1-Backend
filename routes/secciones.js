@@ -4,7 +4,7 @@ const seccionesController = require('../controllers/secciones.c');
 
 // Rutas CRUD para secciones
 
-// Mostrar todos los secciones
+// Mostrar todas las secciones
 router.get('/', (req, res) => {
   seccionesController.Mostrar()
     .then(resp => {
@@ -15,10 +15,10 @@ router.get('/', (req, res) => {
     });
 });
 
-// Buscar un evento por ID
+// Buscar una seccion por ID
 router.get('/:id', (req, res) => {
-  const idEvento = req.params.id;
-  seccionesController.Buscar(idEvento)
+  const idSecciones = req.params.id;
+  seccionesController.Buscar(idSecciones)
     .then(resp => {
       res.render('secciones', { resp: resp });
     })
@@ -27,10 +27,10 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// Ingresar un nuevo evento
+// Ingresar una nueva seccion
 router.post('/', (req, res) => {
-  const nuevoEvento = req.body;
-  seccionesController.Ingresar(nuevoEvento)
+  const nuevaSecciones = req.body;
+  seccionesController.Ingresar(nuevaSecciones)
     .then(resp => {
       res.render('secciones', { resp: resp });
     })
@@ -39,11 +39,11 @@ router.post('/', (req, res) => {
     });
 });
 
-// Modificar un evento
+// Modificar una seccion
 router.put('/:id', (req, res) => {
-  const idEvento = req.params.id;
-  const nuevaInfoEvento = req.body;
-  seccionesController.Modificar(idEvento, nuevaInfoEvento)
+  const idSecciones = req.params.id;
+  const nuevaInfoSecciones = req.body;
+  seccionesController.Modificar(idSecciones, nuevaInfoSecciones)
     .then(resp => {
       res.render('secciones', { resp: resp });
     })
@@ -52,10 +52,10 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// Eliminar un evento
+// Eliminar una seccion
 router.delete('/:id', (req, res) => {
-  const idEvento = req.params.id;
-  seccionesController.Eliminar(idEvento)
+  const idSecciones = req.params.id;
+  seccionesController.Eliminar(idSecciones)
     .then(resp => {
       res.render('secciones', { resp: resp });
     })

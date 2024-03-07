@@ -15,10 +15,10 @@ router.get('/', (req, res) => {
     });
 });
 
-// Buscar un evento por ID
+// Buscar una materia por ID
 router.get('/:id', (req, res) => {
-  const idEvento = req.params.id;
-  materiasController.Buscar(idEvento)
+  const idMateria = req.params.id;
+  materiasController.Buscar(idMateria)
     .then(resp => {
       res.render('materias', { resp: resp });
     })
@@ -27,10 +27,10 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// Ingresar un nuevo evento
+// Ingresar una nueva materia
 router.post('/', (req, res) => {
-  const nuevoEvento = req.body;
-  materiasController.Ingresar(nuevoEvento)
+  const nuevaMateria = req.body;
+  materiasController.Ingresar(nuevaMateria)
     .then(resp => {
       res.render('materias', { resp: resp });
     })
@@ -39,11 +39,11 @@ router.post('/', (req, res) => {
     });
 });
 
-// Modificar un evento
+// Modificar una materia
 router.put('/:id', (req, res) => {
-  const idEvento = req.params.id;
-  const nuevaInfoEvento = req.body;
-  materiasController.Modificar(idEvento, nuevaInfoEvento)
+  const idMateria = req.params.id;
+  const nuevaInfomateria = req.body;
+  materiasController.Modificar(idMateria, nuevaInfomateria)
     .then(resp => {
       res.render('materias', { resp: resp });
     })
@@ -52,16 +52,30 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// Eliminar un evento
+// Eliminar una materia
 router.delete('/:id', (req, res) => {
-  const idEvento = req.params.id;
-  materiasController.Eliminar(idEvento)
+  const idMateria = req.params.id;
+  materiasController.Eliminar(idMateria)
     .then(resp => {
       res.render('materias', { resp: resp });
     })
     .catch(error => {
       res.status(500).send(error);
     });
+});
+
+// Obtener eventos de una materia para una fecha y la semana siguiente
+router.get('/materia/:idMateria/fecha/:fecha', async (req, res) => {
+  try {
+    const idMateria = req.params.idMateria;
+    const fecha = req.params.fecha;
+
+    const eventos = await eventosController.ObtenerEventos(idMateria, fecha);
+    
+    res.render('eventosMateriaFecha', { eventos: eventos, materiaId: idMateria, fecha: fecha });
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
 module.exports = router;

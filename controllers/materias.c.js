@@ -87,14 +87,7 @@ class MateriasController {
     // Obtener eventos de una materia para una fecha y la semana siguiente
     ObtenerEventos(idMateria, fecha) {
       const sql = `
-        SELECT *
-        FROM eventos
-        WHERE materia_id = ? AND (
-          fecha = ? OR (
-            fecha > ? AND fecha <= DATE_ADD(?, INTERVAL 7 DAY)
-          )
-        )
-      `;
+        SELECT * FROM eventos WHERE materia_id = ? AND (fecha = ? OR (fecha > ? AND fecha <= DATE_ADD(?, INTERVAL 7 DAY)))`;
   
     return new Promise((resolve, reject) => {
       db.query(sql, [idMateria, fecha, fecha, fecha], (err, result) => {

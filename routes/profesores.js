@@ -15,10 +15,10 @@ router.get('/', (req, res) => {
     });
 });
 
-// Buscar un evento por ID
+// Buscar un profesor por ID
 router.get('/:id', (req, res) => {
-  const idEvento = req.params.id;
-  profesoresController.Buscar(idEvento)
+  const idProfesores = req.params.id;
+  profesoresController.Buscar(idProfesores)
     .then(resp => {
       res.render('profesores', { resp: resp });
     })
@@ -27,10 +27,10 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// Ingresar un nuevo evento
+// Ingresar un nuevo profesor
 router.post('/', (req, res) => {
-  const nuevoEvento = req.body;
-  profesoresController.Ingresar(nuevoEvento)
+  const nuevoProfesor = req.body;
+  profesoresController.Ingresar(nuevoProfesor)
     .then(resp => {
       res.render('profesores', { resp: resp });
     })
@@ -39,11 +39,11 @@ router.post('/', (req, res) => {
     });
 });
 
-// Modificar un evento
+// Modificar un profesor
 router.put('/:id', (req, res) => {
-  const idEvento = req.params.id;
-  const nuevaInfoEvento = req.body;
-  profesoresController.Modificar(idEvento, nuevaInfoEvento)
+  const idProfesores = req.params.id;
+  const nuevaInfoProfesor = req.body;
+  profesoresController.Modificar(idProfesores, nuevaInfoProfesor)
     .then(resp => {
       res.render('profesores', { resp: resp });
     })
@@ -52,10 +52,10 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// Eliminar un evento
+// Eliminar un profesor
 router.delete('/:id', (req, res) => {
-  const idEvento = req.params.id;
-  profesoresController.Eliminar(idEvento)
+  const idProfesores = req.params.id;
+  profesoresController.Eliminar(idProfesores)
     .then(resp => {
       res.render('profesores', { resp: resp });
     })
