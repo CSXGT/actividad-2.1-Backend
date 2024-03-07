@@ -3,28 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materias</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <title>Eventos</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    <h1>Materias</h1>
+  <header>
+    <img src="https://uvm.edu.ve/wp-content/uploads/2022/10/LOGO-RIF.png" alt="Logo UVM">
+    <h1>Sistema de Gestión de la Universidad Valle del Momboy</h1>
+  </header>
+</head>
+<body>
+    <h3>Materias</h3>
         <table>
             <tr>
-                <th ><h3>ID</h3></th>
-                <th ><h3>NOMBRE</h3></th>
+                <th >ID</th>
+                <th >NOMBRE</th>
                  </tr>
             <% resp.forEach(r => { %>
                 <tr>

@@ -31,27 +31,28 @@ h1 {
 }
 
 h3 {
-  color: #D4FFC7; /* Color del encabezado de la tabla */
-  background-color: #80A841; /* Fondo del encabezado de la tabla */
+  color: #80A841;
   padding: 10px;
   text-align: center;
+  font-size: 30px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 table {
   width: 80%;
   margin: 20px auto;
   border-collapse: collapse;
-  border: 2px solid #80A841; /* Color del borde de la tabla */
+  border: 2px solid #80A841;
 }
 
 th, td {
-  border: 1px solid #80A841; /* Color del borde interno de las celdas */
+  border: 1px solid #80A841;
   padding: 10px;
   text-align: center;
 }
 
 th {
-  background-color: #D4FFC7; /* Fondo del encabezado de la columna */
+  background-color: #D4FFC7;
   color: #333;
 }
 
@@ -67,9 +68,9 @@ footer {
   background-color: #80A841;
   padding: 10px 0;
   color: white;
-  position: fixed;
   width: 100%;
   bottom: 0;
+  position: bottom;
 }
 
 .footer-p {

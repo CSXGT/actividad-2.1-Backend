@@ -4,30 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    <h1>Eventos</h1>
+  <header>
+    <img src="https://uvm.edu.ve/wp-content/uploads/2022/10/LOGO-RIF.png" alt="Logo UVM">
+    <h1>Sistema de Gestión de la Universidad Valle del Momboy</h1>
+  </header>
+
+    <h3>Eventos</h3>
         <table>
             <tr>
-                <th ><h3>ID_EVENTOS</h3></th>
-                <th ><h3>TIPO</h3></th>
-                <th ><h3>FECHA</h3></th>
-                <th ><h3>MATERIA_ID</h3></th>
-                <th ><h3>SECCION_ID</h3></th>
+                <th >ID_EVENTOS</h3></th>
+                <th >TIPO</th>
+                <th >FECHA</th>
+                <th >MATERIA_ID</th>
+                <th >SECCION_ID</th>
                  </tr>
             <% resp.forEach(r => { %>
                 <tr>
@@ -39,6 +31,9 @@
                 </tr>
             <% }) %>
         </table>
+  <footer>
+      <p class="footer-p">Verónica Parra 30.600.365<br>Cristhofer Solarte 30.959.561<br> <em>&copy; Backend 2024. Unidad II</em></p>
+  </footer>
 
 </body>
 </html>
