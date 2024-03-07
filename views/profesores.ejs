@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profesores</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    <h1>Profesores</h1>
+  <header>
+    <img src="https://uvm.edu.ve/wp-content/uploads/2022/10/LOGO-RIF.png" alt="Logo UVM">
+    <h1>Sistema de Gestión de la Universidad Valle del Momboy</h1>
+  </header>
+    <h3>Profesores</h3>
         <table>
             <tr>
-                <th ><h3>ID</h3></th>
-                <th ><h3>NOMBRE</h3></th>
-                <th ><h3>APELLIDO</h3></th>
+                <th >ID</th>
+                <th >NOMBRE</th>
+                <th >APELLIDO</th>
                  </tr>
             <% resp.forEach(r => { %>
                 <tr>
@@ -21,6 +26,8 @@
                 </tr>
             <% }) %>
         </table>
-
+        <footer>
+            <p class="footer-p">Verónica Parra 30.600.365<br>Cristhofer Solarte 30.959.561<br> <em>&copy; Backend 2024. Unidad II</em></p>
+        </footer>
 </body>
 </html>

@@ -49,11 +49,13 @@ th, td {
   border: 1px solid #80A841;
   padding: 10px;
   text-align: center;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
 th {
   background-color: #D4FFC7;
-  color: #333;
+
 }
 
 
@@ -70,7 +72,7 @@ footer {
   color: white;
   width: 100%;
   bottom: 0;
-  position: bottom;
+  position: fixed;
 }
 
 .footer-p {
